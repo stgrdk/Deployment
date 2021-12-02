@@ -1,6 +1,34 @@
-#!/bin/bash
+!/bin/bash
 #set -x
 
+############################################################################################
+##
+## Shell script to Download shell scripts from Intune
+##
+###########################################
+
+###########################################################################################
+## Script Name	:   Get-deviceShellScripts.sh
+## Author       :   Steffen Greve
+##
+## To obtain a client id, go to portal.azure.com and click on "App registeration"
+## Press " + New registration
+## Give the application a name
+## Select "Accounts in this organizational directory only (XXXXXXX only - Single tenant)
+## Press "Registrer"
+##
+## Go to "Api Permissions" and press " + Add Permission" and select those needed. Then "Grant consent for domain"
+## Go to "Certification & Secrets" and press " + New client secret". Type in a description and select 24 months.
+## Copy Secret "Value", and go to Overview and copy "Application Id" and fill in Tenantname also in below variables.
+##
+###########################################
+
+clientId="<APPLICATIONID>"
+clientSecret="<CLIENTSECRET>"
+tenantName="XXXXXXX.onmicrosoft.com"
+exportDir="/paht/to/exported/scripts"
+
+# function to get auth token from graph api with cUrl
 function Get-AuthToken() {
     : '
     .SYNOPSIS
@@ -100,8 +128,8 @@ else
     jq=$false
 fi
 
-accessToken=$(Get-AuthToken "<ClientID>" "<ClientSecret>" "<TenantName>" $jq)
-Get-DeviceShellScripts $accessToken "/Users/steffengreve/Downloads/Intune" $jq
+accessToken=$(Get-AuthToken $clientId $clientSecret $tenantName $jq)
+Get-DeviceShellScripts $accessToken $exportDir $jq
 
 
         
