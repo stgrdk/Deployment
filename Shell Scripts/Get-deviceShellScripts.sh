@@ -11,7 +11,7 @@
 ## Script Name	:   Get-deviceShellScripts.sh
 ## Author       :   Steffen Greve
 ##
-## To obtain a client id, go to portal.azure.com and click on "App registeration"
+## To obtain a client id, go to portal.azure.com and click on "App registration"
 ## Press " + New registration
 ## Give the application a name
 ## Select "Accounts in this organizational directory only (XXXXXXX only - Single tenant)
