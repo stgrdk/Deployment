@@ -1,0 +1,6 @@
+Version 1.0
+9PJSDV0VPK04
+9PBLBM45RJQJ
+Microsoft.PowerToys
+7zip.7zip
+Lenovo.SystemUpdate
